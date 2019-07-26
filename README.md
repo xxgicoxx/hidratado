@@ -1,6 +1,6 @@
 # HidratadO
 
-HidratadO is a application for macOS to help you stay hydrated.
+HidratadO is an application for macOS to help you stay hydrated.
 
 ![Stay Hydrated](http://i.imgur.com/vXzlU1I.png)
 
