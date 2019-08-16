@@ -1,43 +1,38 @@
 # HidratadO
-
 HidratadO is an application for macOS to help you stay hydrated.
 
 ![Stay Hydrated](http://i.imgur.com/vXzlU1I.png)
 
-## Features
-
-* Notifications
-* Icon on System Tray
-* Timer configuration
-* Start Automatically
-
-## Prerequisites
-
-* [Git](https://git-scm.com/) - Git
+### Prerequisites
 * [Node.js](https://nodejs.org/en/) - Node.js
 
-## Running
-
+### Running
 The application run locally, just package and use.
 
 ### Run
-```
+````
 # Install dependencies
 npm install
 
 # Run
 npm start
-```
+````
 
-### Deployment
-```
+### Build
+````
 # Package
 npm run package
 
 # Get your version
 out/HidratadO-darwin-x64/HidratadO.app
-```
+````
 
-## Acknowledgments
+### Built With
+* [Node.js](https://nodejs.org/en/)
+* [Electron](https://electronjs.org/)
 
+### Authors
+* **Giovani de Oliveira** - [xxgicoxx](https://github.com/xxgicoxx)
+
+### Acknowledgments
 * [FlatIcon](https://www.flaticon.com/) - Icon
