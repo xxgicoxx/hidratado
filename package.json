@@ -1,7 +1,7 @@
 {
   "name": "hidratado",
   "productName": "HidratadO",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "HidratadO is a application for MAC OS X to help you stay hydrated.",
   "author": "Giovani de Oliveira <giovanioliveira@outlook.com.br>",
   "license": "MIT",
@@ -19,16 +19,16 @@
   },
   "homepage": "https://github.com/xxgicoxx/hidratado/",
   "keywords": [
-    "electron", 
-    "stay-hydrated", 
-    "hydrated", 
+    "electron",
+    "stay-hydrated",
+    "hydrated",
     "mac"
   ],
   "devDependencies": {
-    "electron": "^5.0.2"
+    "electron": "^7.1.2",
+    "electron-packager": "^14.1.1"
   },
   "dependencies": {
-    "electron-packager": "^13.1.1",
-    "electron-store": "^3.2.0"
+    "electron-store": "^5.1.0"
   }
 }

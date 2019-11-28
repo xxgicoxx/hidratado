@@ -1,4 +1,4 @@
-const {app, Menu, Tray} = require('electron');
+const {app, Menu, Tray, shell} = require('electron');
 const path = require('path');
 const electronStore = require('electron-store');
 const store = new electronStore();
@@ -51,7 +51,7 @@ create = () => {
       { type: 'separator' },
       { label: 'About', 
         click () {
-          require('electron').shell.openExternalSync('https://github.com/xxgicoxx/hidratado')
+          shell.openExternal('https://github.com/xxgicoxx/hidratado')
         }
       },
       { type: 'separator' },
