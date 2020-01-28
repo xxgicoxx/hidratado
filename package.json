@@ -2,7 +2,7 @@
   "name": "hidratado",
   "productName": "HidratadO",
   "version": "1.0.1",
-  "description": "HidratadO is a application for MAC OS X to help you stay hydrated.",
+  "description": "Application for MAC OS X to help you stay hydrated",
   "author": "Giovani de Oliveira <giovanioliveira@outlook.com.br>",
   "license": "MIT",
   "main": "app.js",
