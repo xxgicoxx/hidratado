@@ -1,14 +1,15 @@
 {
   "name": "hidratado",
   "productName": "HidratadO",
-  "version": "1.0.1",
-  "description": "Application for MAC OS X to help you stay hydrated",
+  "version": "1.1.1",
+  "description": "Application to help you stay hydrated",
   "author": "Giovani de Oliveira <giovanioliveira@outlook.com.br>",
   "license": "MIT",
   "main": "app.js",
   "scripts": {
     "start": "electron .",
-    "package": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./app/resources/icons/icon.icns --overwrite"
+    "package-macos": "electron-packager ./ --platform=darwin --arch=x64 --out=release-builds --icon=./app/resources/icons/icon.icns --overwrite",
+    "package-windows": "electron-packager ./ --platform=win32 --arch=x64 --out=release-builds --icon=./app/resources/icons/icon.ico --overwrite --asar"
   },
   "repository": {
     "type": "git",
@@ -19,16 +20,19 @@
   },
   "homepage": "https://github.com/xxgicoxx/hidratado/",
   "keywords": [
-    "electron",
+    "hidratado",
     "stay-hydrated",
     "hydrated",
-    "mac"
+    "water"
   ],
-  "devDependencies": {
-    "electron": "^7.1.2",
-    "electron-packager": "^14.1.1"
-  },
   "dependencies": {
     "electron-store": "^5.1.0"
+  },
+  "devDependencies": {
+    "electron": "^8.0.0",
+    "electron-packager": "^14.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1"
   }
 }

@@ -1,16 +1,24 @@
-const {app} = require('electron');
-const tray = require('./app/core/tray');
-const worker = require('./app/worker/notification/index');
+const { app } = require('electron');
 
-app.dock.hide();
+const { TrayController } = require('./app/controllers');
+const { Notifications } = require('./app/workers/cron-jobs/notifications');
+
+const isMac = process.platform === 'darwin';
+
+if (isMac) {
+  app.dock.hide();
+}
 
 app.setLoginItemSettings({
-  openAtLogin: true
+  openAtLogin: true,
 });
 
 app.on('ready', () => {
-  tray.create();
-  worker.start();
+  const notifications = new Notifications();
+  const trayController = new TrayController();
+
+  trayController.create();
+  notifications.start();
 });
 
 app.on('window-all-closed', () => {

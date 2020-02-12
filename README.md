@@ -1,5 +1,5 @@
 # HidratadO
-Application for MAC OS X to help you stay hydrated.
+Application to help you stay hydrated.
 
 ![Stay Hydrated](http://i.imgur.com/vXzlU1I.png)
 
@@ -9,22 +9,37 @@ Application for MAC OS X to help you stay hydrated.
 ### Running
 The application run locally, just package and use.
 
+### Electron
+````
+# Install
+npm i -D electron@latest
+````
+
 ### Run
 ````
 # Install dependencies
 npm install
 
-# Run
+# Start
 npm start
 ````
 
-### Build
+### Build Windows
 ````
 # Package
-npm run package
+npm run package-windows
 
 # Get your version
-out/HidratadO-darwin-x64/HidratadO.app
+release-builds/HidratadO-win32-x64/HidratadO.exe
+````
+
+### Build MacOS
+````
+# Package
+npm run package-macos
+
+# Get your version
+release-builds/HidratadO-darwin-x64/HidratadO.app
 ````
 
 ### Built With
