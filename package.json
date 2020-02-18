@@ -1,7 +1,7 @@
 {
   "name": "hidratado",
   "productName": "HidratadO",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Application to help you stay hydrated",
   "author": "Giovani de Oliveira <giovanioliveira@outlook.com.br>",
   "license": "MIT",
@@ -26,10 +26,10 @@
     "water"
   ],
   "dependencies": {
+    "electron": "^8.0.1",
     "electron-store": "^5.1.0"
   },
   "devDependencies": {
-    "electron": "^8.0.0",
     "electron-packager": "^14.1.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
