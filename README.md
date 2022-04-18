@@ -1,21 +1,15 @@
 # HidratadO
-Application to help you stay hydrated.
+Application for help you stay hydrated.
 
-![Stay Hydrated](http://i.imgur.com/vXzlU1I.png)
+<p align="center">
+  <img src="assets/imgs/hidratado.png">
+</p>
 
-### Prerequisites
-* [Node.js](https://nodejs.org/en/) - Node.js
+# Prerequisites
+* [Node.js](https://nodejs.org/en/)
 
-### Running
-The application run locally, just package and use.
-
-### Electron
-````
-# Install
-npm i -D electron@latest
-````
-
-### Run
+# Running
+### 1. Run
 ````
 # Install dependencies
 npm install
@@ -24,30 +18,30 @@ npm install
 npm start
 ````
 
-### Build Windows
+### 2. Build Windows
 ````
 # Package
-npm run package-windows
+npm run dist
 
 # Get your version
-release-builds/HidratadO-win32-x64/HidratadO.exe
+dist/HidratadO.exe
 ````
 
-### Build MacOS
+### 3. Build MacOS
 ````
 # Package
-npm run package-macos
+npm run dist
 
 # Get your version
-release-builds/HidratadO-darwin-x64/HidratadO.app
+dist/HidratadO.app
 ````
 
-### Built With
+# Built With
 * [Node.js](https://nodejs.org/en/)
 * [Electron](https://electronjs.org/)
 
-### Authors
-* **Giovani de Oliveira** - [xxgicoxx](https://github.com/xxgicoxx)
+# Authors
+* [xxgicoxx](https://github.com/xxgicoxx)
 
-### Acknowledgments
-* [FlatIcon](https://www.flaticon.com/) - Icon
+# Acknowledgments
+* [FlatIcon](https://www.flaticon.com/)

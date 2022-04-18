@@ -1,9 +1,14 @@
 const { app } = require('electron');
 
 const { TrayController } = require('./app/controllers');
-const { Notifications } = require('./app/workers/cron-jobs/notifications');
+const { Notifications } = require('./app/workers');
 
 const isMac = process.platform === 'darwin';
+const isWin = process.platform === 'win32';
+
+if (isWin) {
+  app.setAppUserModelId('HidratadO');
+}
 
 if (isMac) {
   app.dock.hide();

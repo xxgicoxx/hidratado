@@ -10,7 +10,8 @@ let tray = null;
 
 class TrayService {
   create() {
-    tray = new Tray(path.join(__dirname, '../resources/img/waterTemplate.png'));
+    tray = new Tray(this.getIconPath());
+
     const contextMenu = Menu.buildFromTemplate([
       {
         label: '10 Minutes',
@@ -94,6 +95,14 @@ class TrayService {
 
     tray.setToolTip('Stay Hydrated');
     tray.setContextMenu(contextMenu);
+  }
+
+  getIconPath() {
+    if (app.isPackaged) {
+      return path.join(process.resourcesPath, 'static', 'img', 'waterTemplate.png');
+    }
+
+    return `${path.join(__dirname, '../static/img/waterTemplate.png')}`;
   }
 }
 
