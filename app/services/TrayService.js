@@ -99,10 +99,10 @@ class TrayService {
 
   getIconPath() {
     if (app.isPackaged) {
-      return path.join(process.resourcesPath, 'static', 'img', 'waterTemplate.png');
+      return path.join(process.resourcesPath, 'static', 'img', 'trayTemplate.png');
     }
 
-    return `${path.join(__dirname, '../static/img/waterTemplate.png')}`;
+    return `${path.join(__dirname, '../static/img/trayTemplate.png')}`;
   }
 }
 
