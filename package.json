@@ -17,12 +17,12 @@
     "appId": "dev.gico.hidratado",
     "asar": true,
     "mac": {
-      "target": "dmg",
+      "target": "zip",
       "category": "public.app-category.healthcare-fitness"
     },
     "win": {
       "target": [
-        "portable"
+        "zip"
       ],
       "publisherName": "Giovani de Oliveira"
     },

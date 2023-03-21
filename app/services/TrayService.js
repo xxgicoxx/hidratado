@@ -4,6 +4,8 @@ const {
 const path = require('path');
 const ElectronStore = require('electron-store');
 
+const { constants } = require('../utils');
+
 const electronStore = new ElectronStore();
 
 let tray = null;
@@ -12,97 +14,61 @@ class TrayService {
   create() {
     tray = new Tray(this.getIconPath());
 
-    const contextMenu = Menu.buildFromTemplate([
-      {
-        label: '10 Minutes',
-        type: 'radio',
-        checked: (electronStore.get('notification-time', 1) === 1),
-        click() {
-          electronStore.set('notification-time', 1);
-        },
-      },
-      {
-        label: '20 Minutes',
-        type: 'radio',
-        checked: (electronStore.get('notification-time', 1) === 2),
-        click() {
-          electronStore.set('notification-time', 2);
-        },
-      },
-      {
-        label: '30 Minutes',
-        type: 'radio',
-        checked: (electronStore.get('notification-time', 1) === 3),
-        click() {
-          electronStore.set('notification-time', 3);
-        },
-      },
-      {
-        label: '40 Minutes',
-        type: 'radio',
-        checked: (electronStore.get('notification-time', 1) === 4),
-        click() {
-          electronStore.set('notification-time', 4);
-        },
-      },
-      {
-        label: '50 Minutes',
-        type: 'radio',
-        checked: (electronStore.get('notification-time', 1) === 5),
-        click() {
-          electronStore.set('notification-time', 5);
-        },
-      },
-      {
-        label: '1 Hour',
-        type: 'radio',
-        checked: (electronStore.get('notification-time', 1) === 6),
-        click() {
-          electronStore.set('notification-time', 6);
-        },
-      },
-      {
-        label: '2 Hours',
-        type: 'radio',
-        checked: (electronStore.get('notification-time', 1) === 12),
-        click() {
-          electronStore.set('notification-time', 12);
-        },
-      },
-      {
-        label: '3 Hours',
-        type: 'radio',
-        checked: (electronStore.get('notification-time', 1) === 18),
-        click() {
-          electronStore.set('notification-time', 18);
-        },
-      },
-      { type: 'separator' },
-      {
-        label: 'About',
-        click() {
-          shell.openExternal('https://github.com/xxgicoxx/hidratado');
-        },
-      },
-      { type: 'separator' },
-      {
-        label: 'Quit',
-        click() {
-          app.quit();
-        },
-      },
-    ]);
+    const contextMenu = Menu.buildFromTemplate(this.getOptions());
 
-    tray.setToolTip('Stay Hydrated');
+    tray.setToolTip(constants.APP_NAME);
     tray.setContextMenu(contextMenu);
+  }
+
+  getOptions() {
+    const start = constants.TIME_START;
+    const end = constants.TIME_END;
+    const interval = constants.TIME_INTERVAL;
+    const options = [];
+
+    for (let time = start; time <= end; time += interval) {
+      options.push({
+        label: `${time} ${constants.MENU_MINUTES}`,
+        type: constants.OPTION_TYPE_RADIO,
+        checked: this.isTime(time),
+        click: () => this.setTime(time),
+      });
+    }
+
+    options.push(
+      { type: constants.SEPARATOR },
+      {
+        label: constants.MENU_ABOUT,
+        click: () => shell.openExternal(constants.MENU_ABOUT_LINK),
+      },
+      { type: constants.SEPARATOR },
+      {
+        label: constants.MENU_QUIT,
+        click: () => app.quit(),
+      },
+    );
+
+    return options;
+  }
+
+  setTime(time) {
+    electronStore.set(constants.NOTIFICATION_TIME, time);
+  }
+
+  isTime(time) {
+    return this.getTime() === time;
+  }
+
+  getTime() {
+    return electronStore.get(constants.NOTIFICATION_TIME, constants.TIME_START);
   }
 
   getIconPath() {
     if (app.isPackaged) {
-      return path.join(process.resourcesPath, 'static', 'img', 'trayTemplate.png');
+      return path.join(process.resourcesPath, ...constants.PATH_TRAY_TEMPLATE_PACKAGE);
     }
 
-    return `${path.join(__dirname, '../static/img/trayTemplate.png')}`;
+    return `${path.join(__dirname, constants.PATH_TRAY_TEMPLATE)}`;
   }
 }
 
