@@ -5,6 +5,9 @@ Application for help you stay hydrated.
   <img src="assets/imgs/hidratado.png">
 </p>
 
+# Features
+* Remind yourself to drink water periodically
+
 # Prerequisites
 * [Node.js](https://nodejs.org/en/)
 
